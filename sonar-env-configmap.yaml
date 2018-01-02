@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: sonar-env
+data:
+    MYSQL_ROOT_PASSWORD: sonar
+    MYSQL_USER: sonar
+    MYSQL_PASSWORD: sonar
+    MYSQL_DATABASE: sonar
+    dependency: container:sonar-mysql
+    SONARQUBE_JDBC_USERNAME: sonar
+    SONARQUBE_JDBC_PASSWORD: sonar
+    LDAP_URL: ldap://ldap:389
+    LDAP_BIND_DN: cn=admin,dc=ldap,dc=example,dc=com
+    LDAP_BIND_PASSWORD: 4f585c9f77531338
+    LDAP_USER_BASE_DN:  cn=admin,dc=ldap,dc=example,dc=com
+    LDAP_USER_REQUEST: (&(objectClass=inetOrgPerson)(uid={login}))
+    LDAP_USER_REAL_NAME_ATTRIBUTE: displayName
+    LDAP_USER_EMAIL_ATTRIBUTE: mail
+    LDAP_GROUP_BASE_DN: ou=groups
+    LDAP_GROUP_REQUEST: (&(objectClass=groupOfUniqueNames)(uniqueMember={dn}))
+    LDAP_GROUP_ID_ATTRIBUTE: "cn"
+    SONARQUBE_JDBC_URL: jdbc:mysql://localhost:3306/sonar?useUnicode=true&characterEncoding=utf8&rewriteBatchedStatements=true
