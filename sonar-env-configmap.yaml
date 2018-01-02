@@ -12,7 +12,7 @@ data:
     SONARQUBE_JDBC_PASSWORD: sonar
     LDAP_URL: ldap://ldap:389
     LDAP_BIND_DN: cn=admin,dc=ldap,dc=example,dc=com
-    LDAP_BIND_PASSWORD: 4f585c9f77531338
+    LDAP_BIND_PASSWORD: ###LDAP_MANAGER_PASSWORD###
     LDAP_USER_BASE_DN:  cn=admin,dc=ldap,dc=example,dc=com
     LDAP_USER_REQUEST: (&(objectClass=inetOrgPerson)(uid={login}))
     LDAP_USER_REAL_NAME_ATTRIBUTE: displayName
