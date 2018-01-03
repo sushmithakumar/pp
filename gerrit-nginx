@@ -1,7 +1,0 @@
-###PROXY:GERRIT###
-    set $upstream_gerrit http://gerrit.ethan.svc.cluster.local:8080;
-    location /gerrit {
-        client_max_body_size 512m;
-        proxy_pass $upstream_gerrit;
-    }
-###PROXY:GERRIT###
