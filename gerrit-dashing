@@ -1,0 +1,3 @@
+   <li data-row="3" data-col="1" data-sizex="1" data-sizey="1">
+    <div style="background: linear-gradient(#eb3349,#f45c43)"; data-id="service-gerrit" data-view="ServerStatus" data-link="/gerrit/" data-title="GERRIT"></div>
+   </li>

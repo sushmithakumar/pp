@@ -1,0 +1,44 @@
+apiVersion: extensions/v1beta1
+kind: ReplicaSet
+metadata:
+  name: gerrit
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: gerrit
+    spec:
+      containers:
+        - name: gerrit-mysql
+          image: mysql:5.6.25
+          ports:
+            - containerPort: 3306
+          envFrom:
+          - configMapRef:
+              name: gerrit-env
+          volumeMounts:
+            - name: gerrit-mysql-data
+              mountPath: /var/lib/mysql
+        - name: gerrit
+          image: accenture/adop-gerrit:0.1.5
+          ports:
+            - containerPort: 8080
+            - containerPort: 29418
+          envFrom:
+          - configMapRef:
+              name: gerrit-env
+          volumeMounts:
+            - name: git-repos
+              mountPath: /var/git/repos
+            - name: gerrit-review-site
+              mountPath: /var/gerrit/review_site
+      volumes:
+      - name: gerrit-mysql-data
+        persistentVolumeClaim:
+          claimName: gerrit-mysql-data
+      - name: git-repos
+        persistentVolumeClaim:
+          claimName: gerrit-data   
+      - name: gerrit-review-site
+        emptyDir: {}

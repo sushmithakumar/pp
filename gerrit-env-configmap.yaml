@@ -1,0 +1,38 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: gerrit-env
+data:
+  MYSQL_ROOT_PASSWORD: gerrit
+  MYSQL_USER: gerrit
+  MYSQL_PASSWORD: gerrit
+  MYSQL_DATABASE: gerrit-sql
+  REPO_PATH: /var/git/repos
+  WEBURL: http://localhost:8080/gerrit/
+  DATABASE_TYPE: mysql
+  DB_HOSTNAME: localhost
+  DB_PORT: "3306"
+  DB_NAME: gerrit-sql
+  DB_USER: gerrit
+  DB_PASSWORD: gerrit
+  AUTH_LOGOUTURL: http://localhost:8080/gerrit/
+  AUTH_TYPE: LDAP
+  GERRIT_PASSWORD: 7ca9fccd27664876
+  GERRIT_PREFIX: gerrit
+  JENKINS_PASSWORD: 7f1f9453d90f4467
+  INITIAL_ADMIN_USER: aidpnewuser
+  INITIAL_ADMIN_PASSWORD: e32674693e559885
+  LDAP_SERVER: ldap:389
+  LDAP_ACCOUNTBASE: dc=ldap,dc=example,dc=com
+  LDAP_ACCOUNTPATTERN: (cn=${username})
+  LDAP_ACCOUNTFULLNAME: ${cn}
+  LDAP_ACCOUNTEMAILADDRESS: mail
+  LDAP_USERNAME: cn=admin,dc=ldap,dc=example,dc=com
+  LDAP_PASSWORD: 4f585c9f77531338
+  LDAP_GROUPBASE: ou=groups,dc=ldap,dc=example,dc=com
+  LDAP_GROUPPATTERN: (cn=${groupname})
+  LDAP_GROUPMEMBERPATTERN: (uniqueMember=${dn})
+  HTTPD_LISTENURL: proxy-http://localhost:8080/gerrit
+  USER_NAME: gerrit
+  USER_EMAIL: gerrit@ldap.examplecom
+  DOWNLOAD_SCHEME: http

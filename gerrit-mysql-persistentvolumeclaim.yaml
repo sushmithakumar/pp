@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: sonar-mysql-data
+  name: gerrit-mysql-data
   annotations:
     volume.beta.kubernetes.io/storage-class: "ebs"
 spec:
