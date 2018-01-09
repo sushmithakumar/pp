@@ -5,7 +5,7 @@ metadata:
 spec:
   ports:
   - name: "sonar"
-    port: 9000
+    port: 9001
     targetPort: 9000
   selector:
     app: sonar
