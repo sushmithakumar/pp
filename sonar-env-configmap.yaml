@@ -2,6 +2,8 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: sonar-env
+  labels:
+    app: sonar-env
 data:
   LDAP_BIND_DN: cn=admin,dc=ldap,dc=example,dc=com
   LDAP_BIND_PASSWORD: ###LDAP_MANAGER_PASSWORD###

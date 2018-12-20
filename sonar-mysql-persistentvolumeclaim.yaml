@@ -2,6 +2,8 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: sonar-mysql-data
+  labels:
+    app: sonar-mysql-data
   annotations:
     volume.beta.kubernetes.io/storage-class: "ebs"
 spec:
