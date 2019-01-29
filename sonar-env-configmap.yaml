@@ -4,7 +4,7 @@ metadata:
   name: sonar-env
 data:
   LDAP_BIND_DN: cn=admin,dc=ldap,dc=example,dc=com
-  LDAP_BIND_PASSWORD: ###LDAP_MANAGER_PASSWORD### 
+  LDAP_BIND_PASSWORD: ###LDAP_MANAGER_PASSWORD###
   LDAP_GROUP_BASE_DN: ou=groups,dc=ldap,dc=example,dc=com
   LDAP_GROUP_ID_ATTRIBUTE: cn
   LDAP_GROUP_REQUEST: (&(objectClass=groupOfUniqueNames)(uniqueMember={dn}))
