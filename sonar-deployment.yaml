@@ -17,6 +17,8 @@ spec:
           volumeMounts:
             - name: sonar-mysql-data
               mountPath: /var/lib/mysql
+            - name: sonar-mysql-cnf
+              mountPath: /etc/mysql/conf.d
           env:
           - name: MYSQL_ROOT_PASSWORD
             valueFrom:
@@ -39,7 +41,7 @@ spec:
                 key: MYSQL_DATABASE
                 name: sonar-env
         - name: sonar
-          image: accenture/adop-sonar:0.3.5
+          image: accenture/adop-sonar:0.4.3
           ports:
             - containerPort: 9000
           volumeMounts:
@@ -134,6 +136,9 @@ spec:
       - name: sonar-mysql-data
         persistentVolumeClaim:
           claimName: sonar-mysql-data
+      - name: sonar-mysql-cnf
+        configMap:
+          name: sonar-mysql-cnf
       - name: sonar-data
         persistentVolumeClaim:
            claimName: sonar-data
